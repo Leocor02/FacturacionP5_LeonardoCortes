@@ -72,6 +72,12 @@ namespace Logica.Models
         public DataTable ListarActivos()
         {
             DataTable R = new DataTable();
+            
+            //Paso 2.1 y 2.2
+            Conexion MiCnn = new Conexion();    
+
+            //Paso 2.3 y 2.4
+            R = MiCnn.EjecutarSelect("SpUsuariosListarActivos"); 
 
             return R;
         }

@@ -30,9 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mANTENIMIENTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pROCESOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aCERCADEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,11 +37,13 @@
             this.gestiónDeEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.gestiónDeProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pROCESOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.cobroFacturasDeCréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.notasDeCréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facruraciónPorRangoDeFechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónPorUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +52,7 @@
             this.listadoDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.listaDeImpuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aCERCADEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,39 +84,6 @@
             this.mANTENIMIENTOSToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
             this.mANTENIMIENTOSToolStripMenuItem.Text = "MANTENIMIENTOS";
             // 
-            // pROCESOSToolStripMenuItem
-            // 
-            this.pROCESOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.facturaciónToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.cobroFacturasDeCréditoToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.notasDeCréditoToolStripMenuItem});
-            this.pROCESOSToolStripMenuItem.Name = "pROCESOSToolStripMenuItem";
-            this.pROCESOSToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
-            this.pROCESOSToolStripMenuItem.Text = "PROCESOS";
-            // 
-            // rEPORTESToolStripMenuItem
-            // 
-            this.rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.facruraciónPorRangoDeFechasToolStripMenuItem,
-            this.facturaciónPorClienteToolStripMenuItem,
-            this.facturaciónPorUsuarioToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.listadoDeClientesToolStripMenuItem,
-            this.listadoDeUsuariosToolStripMenuItem,
-            this.toolStripSeparator6,
-            this.listaDeImpuestosToolStripMenuItem});
-            this.rEPORTESToolStripMenuItem.Name = "rEPORTESToolStripMenuItem";
-            this.rEPORTESToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
-            this.rEPORTESToolStripMenuItem.Text = "REPORTES";
-            // 
-            // aCERCADEToolStripMenuItem
-            // 
-            this.aCERCADEToolStripMenuItem.Name = "aCERCADEToolStripMenuItem";
-            this.aCERCADEToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
-            this.aCERCADEToolStripMenuItem.Text = "ACERCA DE...";
-            // 
             // gestiónDeClientesToolStripMenuItem
             // 
             this.gestiónDeClientesToolStripMenuItem.Name = "gestiónDeClientesToolStripMenuItem";
@@ -128,6 +95,7 @@
             this.gestiónDeUsuariosToolStripMenuItem.Name = "gestiónDeUsuariosToolStripMenuItem";
             this.gestiónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.gestiónDeUsuariosToolStripMenuItem.Text = "Gestión de Usuarios";
+            this.gestiónDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeUsuariosToolStripMenuItem_Click);
             // 
             // gestiónDeProductosToolStripMenuItem
             // 
@@ -158,6 +126,18 @@
             this.gestiónDeProveedoresToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.gestiónDeProveedoresToolStripMenuItem.Text = "Gestión de proveedores";
             // 
+            // pROCESOSToolStripMenuItem
+            // 
+            this.pROCESOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.facturaciónToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.cobroFacturasDeCréditoToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.notasDeCréditoToolStripMenuItem});
+            this.pROCESOSToolStripMenuItem.Name = "pROCESOSToolStripMenuItem";
+            this.pROCESOSToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.pROCESOSToolStripMenuItem.Text = "PROCESOS";
+            // 
             // facturaciónToolStripMenuItem
             // 
             this.facturaciónToolStripMenuItem.Name = "facturaciónToolStripMenuItem";
@@ -187,6 +167,21 @@
             this.notasDeCréditoToolStripMenuItem.Name = "notasDeCréditoToolStripMenuItem";
             this.notasDeCréditoToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.notasDeCréditoToolStripMenuItem.Text = "Notas de Crédito";
+            // 
+            // rEPORTESToolStripMenuItem
+            // 
+            this.rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.facruraciónPorRangoDeFechasToolStripMenuItem,
+            this.facturaciónPorClienteToolStripMenuItem,
+            this.facturaciónPorUsuarioToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.listadoDeClientesToolStripMenuItem,
+            this.listadoDeUsuariosToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.listaDeImpuestosToolStripMenuItem});
+            this.rEPORTESToolStripMenuItem.Name = "rEPORTESToolStripMenuItem";
+            this.rEPORTESToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.rEPORTESToolStripMenuItem.Text = "REPORTES";
             // 
             // facruraciónPorRangoDeFechasToolStripMenuItem
             // 
@@ -233,6 +228,12 @@
             this.listaDeImpuestosToolStripMenuItem.Name = "listaDeImpuestosToolStripMenuItem";
             this.listaDeImpuestosToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.listaDeImpuestosToolStripMenuItem.Text = "Lista de Impuestos";
+            // 
+            // aCERCADEToolStripMenuItem
+            // 
+            this.aCERCADEToolStripMenuItem.Name = "aCERCADEToolStripMenuItem";
+            this.aCERCADEToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.aCERCADEToolStripMenuItem.Text = "ACERCA DE...";
             // 
             // FrmMDIPrincipal
             // 
