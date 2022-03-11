@@ -30,6 +30,7 @@
         {
             this.DgvListaUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtCedula = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.CBoxTipoUsuario = new System.Windows.Forms.ComboBox();
@@ -53,7 +54,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.CbVerActivos = new System.Windows.Forms.CheckBox();
-            this.TxtCedula = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +97,13 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del Usuario";
+            // 
+            // TxtCedula
+            // 
+            this.TxtCedula.Location = new System.Drawing.Point(58, 164);
+            this.TxtCedula.Name = "TxtCedula";
+            this.TxtCedula.Size = new System.Drawing.Size(166, 20);
+            this.TxtCedula.TabIndex = 18;
             // 
             // label6
             // 
@@ -244,6 +251,7 @@
             this.BtnAgregar.TabIndex = 2;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // BtnEditar
             // 
@@ -330,13 +338,6 @@
             this.CbVerActivos.TabIndex = 9;
             this.CbVerActivos.Text = "Ver Usuarios Activos";
             this.CbVerActivos.UseVisualStyleBackColor = true;
-            // 
-            // TxtCedula
-            // 
-            this.TxtCedula.Location = new System.Drawing.Point(58, 164);
-            this.TxtCedula.Name = "TxtCedula";
-            this.TxtCedula.Size = new System.Drawing.Size(166, 20);
-            this.TxtCedula.TabIndex = 18;
             // 
             // FrmUsuariosGestion
             // 
