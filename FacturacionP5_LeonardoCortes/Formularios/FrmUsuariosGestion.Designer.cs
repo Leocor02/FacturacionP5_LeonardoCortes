@@ -72,6 +72,7 @@
             this.DgvListaUsuarios.Size = new System.Drawing.Size(704, 202);
             this.DgvListaUsuarios.TabIndex = 0;
             this.DgvListaUsuarios.VirtualMode = true;
+            this.DgvListaUsuarios.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaUsuarios_DataBindingComplete);
             // 
             // groupBox1
             // 

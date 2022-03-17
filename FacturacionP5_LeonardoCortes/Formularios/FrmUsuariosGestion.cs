@@ -12,7 +12,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 {
     public partial class FrmUsuariosGestion : Form
     {
-        //Al igual que con cualquier otra clase se pueden escribir atributos para la misma
+        //Al igual que con cualquier otra clase se pueden escribir atributos para el form
 
         //en este caso vamos a tener un atributo de tipo usuario de fondo
         //el cual me permite manipular los cambios que el usuario haga en todo momento
@@ -56,6 +56,8 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
             //mostrar datos en el dgv
             DgvListaUsuarios.DataSource = dt; 
+
+            DgvListaUsuarios.ClearSelection();
             
 
 
@@ -103,8 +105,8 @@ namespace FacturacionP5_LeonardoCortes.Formularios
             MiUsuarioLocal.CorreoDeRespaldo = TxtEmailRespaldo.Text.Trim();
             MiUsuarioLocal.MiRol.IDUsurioRol = Convert.ToInt32(CBoxTipoUsuario.SelectedValue);
 
+            //solo en este caso vamos a seguir la numeración de la secuencia "SqUsuarioAgregar"
 
-            //solo en este caso vamos a seguir la numeración de la secuencia que "SeqUsuarioAgregar"
 
             //paso 1.1 y 1.2 está en el constructor
 
@@ -129,9 +131,34 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                     MessageBox.Show("Ha ocurrido un error y el usuario no se guardó", ":(", MessageBoxButtons.OK);
                 }
 
+                ListarUsuariosActivos();
+
+                //TO DO: Limpiar el formulario
+
              
                 
             }
+            else
+            {
+                //En este caso tenemos que indicar al usuario que la validación falló
+                if (A)
+                {
+                    MessageBox.Show("Ya existe un usuario con la cédula digitada", "Erroe de validación", MessageBoxButtons.OK);
+                    TxtCedula.Focus();  
+                    TxtCedula.SelectAll();  
+                }
+                if (B)
+                {
+                    MessageBox.Show("Ya existe un usuario con el email digitado", "Erroe de validación", MessageBoxButtons.OK);
+                    TxtEmail.Focus();   
+                    TxtEmail.SelectAll();  
+                }
+            }
+        }
+
+        private void DgvListaUsuarios_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DgvListaUsuarios.ClearSelection();
         }
     }
 }
