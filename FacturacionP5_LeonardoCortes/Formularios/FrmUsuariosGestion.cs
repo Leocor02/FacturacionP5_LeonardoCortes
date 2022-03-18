@@ -63,11 +63,46 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
         }
 
+
         private void FrmUsuariosGestion_Load_1(object sender, EventArgs e)
         {
+            MdiParent = ObjetosGlobales.MiFormularioPrincipal;
+
             ListarUsuariosActivos();
 
             CargarRolesDeUsuarioEnCombo();
+
+            ActivarAgregar();
+        }
+
+        private void ActivarAgregar()
+        {
+            //Activa solo el boton de agregar
+            BtnAgregar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false; 
+        }
+
+        private void ActivarEditarYEliminar()
+        {
+            //Activa solo el boton de agregar
+            BtnAgregar.Enabled = false;
+            BtnEditar.Enabled = true;
+            BtnEliminar.Enabled = true;
+        }
+
+        private void LimpiarForm()
+        {
+            //este método elimina todos los datos de los controles del formulario 
+            TxtCodigo.Clear();
+            TxtNombre.Clear();
+            TxtEmail.Clear();
+            TxtCedula.Clear();
+            TxtTelefono.Clear();
+            TxtEmailRespaldo.Clear();
+            TxtPassword.Clear();
+            CBoxTipoUsuario.SelectedIndex = -1;
+
         }
 
         private void CargarRolesDeUsuarioEnCombo()
@@ -88,70 +123,159 @@ namespace FacturacionP5_LeonardoCortes.Formularios
             CBoxTipoUsuario.SelectedIndex = -1;
         }
 
+
+        private bool ValidarDatosRequeridos()
+        {
+            bool R = false;
+
+            if (!string.IsNullOrEmpty(TxtNombre.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtEmail.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtCedula.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtTelefono.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtEmailRespaldo.Text.Trim()) &&
+                !string.IsNullOrEmpty(TxtPassword.Text.Trim()) &&
+                CBoxTipoUsuario.SelectedIndex > -1
+               )
+            {
+                //TO DO: Validar la contraseña SOLO en Agregar y en caso que se digite
+                //cuando estemos en modo de edición
+                R = true;
+            }
+            else
+            {
+                //retroalimentar al usuario para indicarle en que está fallando
+                //debemos reevaluar cada cuandro de texto para ver si no lo digitó
+                //y dar el aviso correspondiente
+
+                if (string.IsNullOrEmpty(TxtNombre.Text.Trim()))
+                {
+                    MessageBox.Show("El nombre del usuario es requerido", "Error de validación", MessageBoxButtons.OK);
+                    TxtNombre.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(TxtEmail.Text.Trim()))
+                {
+                    MessageBox.Show("El email del usuario es requerido", "Error de validación", MessageBoxButtons.OK);
+                    TxtEmail.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(TxtCedula.Text.Trim()))
+                {
+                    MessageBox.Show("La cedula del usuario es requerida", "Error de validación", MessageBoxButtons.OK);
+                    TxtCedula.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(TxtTelefono.Text.Trim()))
+                {
+                    MessageBox.Show("El telefono del usuario es requerido", "Error de validación", MessageBoxButtons.OK);
+                    TxtTelefono.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(TxtEmailRespaldo.Text.Trim()))
+                {
+                    MessageBox.Show("El email de respaldo del usuario es requerido", "Error de validación", MessageBoxButtons.OK);
+                    TxtEmailRespaldo.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(TxtPassword.Text.Trim()))
+                {
+                    MessageBox.Show("La contraseña del usuario es requerida", "Error de validación", MessageBoxButtons.OK);
+                    TxtPassword.Focus();
+                    return false;
+                }
+
+                if (CBoxTipoUsuario.SelectedIndex == -1)
+                {
+                    MessageBox.Show("El tipo de usuario es requerido, ", "Error de validación", MessageBoxButtons.OK);
+                    CBoxTipoUsuario.Focus();
+                    return false;
+                }
+            }
+
+
+            return R;
+        }
+
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             //en la secuencia nos explica, pero se debe realizar una serie de validaciones de
             //datos mínimos y de tipos y extenciones correctas a cada campo
 
-            //TO DO: Agregar funcionalidad de validación
-
-            //Temporal: se agregan los valores de los atributos del objeto local
-
-            MiUsuarioLocal.Nombre = TxtNombre.Text.Trim();
-            MiUsuarioLocal.NombreUsuario = TxtEmail.Text.Trim();
-            MiUsuarioLocal.Cedula = TxtCedula.Text.Trim();
-            MiUsuarioLocal.Telefono = TxtTelefono.Text.Trim();
-            MiUsuarioLocal.Contrasennia = TxtPassword.Text.Trim(); 
-            MiUsuarioLocal.CorreoDeRespaldo = TxtEmailRespaldo.Text.Trim();
-            MiUsuarioLocal.MiRol.IDUsurioRol = Convert.ToInt32(CBoxTipoUsuario.SelectedValue);
-
-            //solo en este caso vamos a seguir la numeración de la secuencia "SqUsuarioAgregar"
-
-
-            //paso 1.1 y 1.2 está en el constructor
-
-            //paso 1.3 y 1.3.6
-            bool A = MiUsuarioLocal.ConsultarPorCedula();
-
-            //paso 1.4 y 1.4.6
-            bool B = MiUsuarioLocal.ConsultarPorEmail();
-
-            //paso 1.5
-            if (!A && !B)
+            if (ValidarDatosRequeridos())
             {
-                //paso 1.6 y 1.6.6 y 1.7
-                if (MiUsuarioLocal.Agregar())
-                {
-                    //paso 1.8
-                    MessageBox.Show("Usaurio agregado correctamente!", ":)", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    //paso 1.8
-                    MessageBox.Show("Ha ocurrido un error y el usuario no se guardó", ":(", MessageBoxButtons.OK);
-                }
 
-                ListarUsuariosActivos();
+                string Pregunta = string.Format("¿Está seguro de agregar el nuevo usuario {0}?", TxtNombre.Text.Trim());
 
-                //TO DO: Limpiar el formulario
+                DialogResult RespuestaDelUsuario = MessageBox.Show(Pregunta, "???", MessageBoxButtons.YesNo);
 
-             
-                
-            }
-            else
-            {
-                //En este caso tenemos que indicar al usuario que la validación falló
-                if (A)
+                if (RespuestaDelUsuario == DialogResult.Yes)
                 {
-                    MessageBox.Show("Ya existe un usuario con la cédula digitada", "Erroe de validación", MessageBoxButtons.OK);
-                    TxtCedula.Focus();  
-                    TxtCedula.SelectAll();  
-                }
-                if (B)
-                {
-                    MessageBox.Show("Ya existe un usuario con el email digitado", "Erroe de validación", MessageBoxButtons.OK);
-                    TxtEmail.Focus();   
-                    TxtEmail.SelectAll();  
+
+
+
+
+                    //Temporal: se agregan los valores de los atributos del objeto local
+                    MiUsuarioLocal.Nombre = TxtNombre.Text.Trim();
+                    MiUsuarioLocal.NombreUsuario = TxtEmail.Text.Trim();
+                    MiUsuarioLocal.Cedula = TxtCedula.Text.Trim();
+                    MiUsuarioLocal.Telefono = TxtTelefono.Text.Trim();
+                    MiUsuarioLocal.Contrasennia = TxtPassword.Text.Trim();
+                    MiUsuarioLocal.CorreoDeRespaldo = TxtEmailRespaldo.Text.Trim();
+                    MiUsuarioLocal.MiRol.IDUsurioRol = Convert.ToInt32(CBoxTipoUsuario.SelectedValue);
+
+                    //solo en este caso vamos a seguir la numeración de la secuencia "SqUsuarioAgregar"
+
+
+                    //paso 1.1 y 1.2 está en el constructor
+
+                    //paso 1.3 y 1.3.6
+                    bool A = MiUsuarioLocal.ConsultarPorCedula();
+
+                    //paso 1.4 y 1.4.6
+                    bool B = MiUsuarioLocal.ConsultarPorEmail();
+
+                    //paso 1.5
+                    if (!A && !B)
+                    {
+                        //paso 1.6 y 1.6.6 y 1.7
+                        if (MiUsuarioLocal.Agregar())
+                        {
+                            //paso 1.8
+                            MessageBox.Show("Usaurio agregado correctamente!", ":)", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            //paso 1.8
+                            MessageBox.Show("Ha ocurrido un error y el usuario no se guardó", ":(", MessageBoxButtons.OK);
+                        }
+
+                        ListarUsuariosActivos();
+
+                        LimpiarForm();
+
+
+                    }
+                    else
+                    {
+                        //En este caso tenemos que indicar al usuario que la validación falló
+                        if (A)
+                        {
+                            MessageBox.Show("Ya existe un usuario con la cédula digitada", "Erroe de validación", MessageBoxButtons.OK);
+                            TxtCedula.Focus();
+                            TxtCedula.SelectAll();
+                        }
+                        if (B)
+                        {
+                            MessageBox.Show("Ya existe un usuario con el email digitado", "Erroe de validación", MessageBoxButtons.OK);
+                            TxtEmail.Focus();
+                            TxtEmail.SelectAll();
+                        }
+                    }
                 }
             }
         }
@@ -159,6 +283,89 @@ namespace FacturacionP5_LeonardoCortes.Formularios
         private void DgvListaUsuarios_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             DgvListaUsuarios.ClearSelection();
+        }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e, true);   
+        }
+
+        private void TxtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e, false, true);
+        }
+
+        private void TxtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresNumeros(e);
+        }
+
+        //arreglar esta parte
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e, true);
+        }
+
+        private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e, false, true);
+        }
+
+        private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e);
+        }
+
+        private void DgvListaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //el siguiente código permite que al hacer clic sobre una línea del dgv
+            //los datos de ese usuario se muestren en el formulario y además el objeto
+            //de usuario local también se carga
+
+            if (DgvListaUsuarios.SelectedRows.Count == 1)
+            {
+                DataGridViewRow Fila = DgvListaUsuarios.SelectedRows[0];
+
+                int IdUsuarioSeleccionado = Convert.ToInt32(Fila.Cells["CIDUsuario"].Value);    
+
+                MiUsuarioLocal = new Logica.Models.Usuario();
+                MiUsuarioLocal = MiUsuarioLocal.ConsultarPorID(IdUsuarioSeleccionado);
+
+                if (MiUsuarioLocal.IDUsuario > 0)
+                {
+                    //se representa la info en los controles respectivos usando el obj MiUsuarioLocal como
+                    //fuente de datos
+
+                    LimpiarForm();
+
+                    TxtCodigo.Text = MiUsuarioLocal.IDUsuario.ToString();
+                    TxtNombre.Text = MiUsuarioLocal.Nombre;
+                    TxtEmail.Text = MiUsuarioLocal.NombreUsuario;
+                    TxtCedula.Text = MiUsuarioLocal.Cedula;
+                    TxtTelefono.Text = MiUsuarioLocal.Telefono;
+                    TxtEmailRespaldo.Text = MiUsuarioLocal.CorreoDeRespaldo;
+
+                    CBoxTipoUsuario.SelectedValue = MiUsuarioLocal.MiRol.IDUsurioRol;
+
+                    ActivarEditarYEliminar();
+
+
+
+                }
+            }
+
+
+        }
+
+        private void BtnLimpiarForm_Click(object sender, EventArgs e)
+        {
+            LimpiarForm();
+            ActivarAgregar();
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

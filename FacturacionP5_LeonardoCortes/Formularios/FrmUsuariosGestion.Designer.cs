@@ -35,11 +35,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CBoxTipoUsuario = new System.Windows.Forms.ComboBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.TxtTelefono = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.TxtPassword = new System.Windows.Forms.TextBox();
-            this.TxtEmailRespaldo = new System.Windows.Forms.Label();
-            this.TxtContrasennia = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtNombre = new System.Windows.Forms.TextBox();
@@ -54,6 +51,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.CbVerActivos = new System.Windows.Forms.CheckBox();
+            this.TxtContrasennia = new System.Windows.Forms.Label();
+            this.TxtEmailRespaldo = new System.Windows.Forms.Label();
+            this.TxtTelefono = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,7 @@
             this.DgvListaUsuarios.Size = new System.Drawing.Size(704, 202);
             this.DgvListaUsuarios.TabIndex = 0;
             this.DgvListaUsuarios.VirtualMode = true;
+            this.DgvListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaUsuarios_CellClick);
             this.DgvListaUsuarios.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaUsuarios_DataBindingComplete);
             // 
             // groupBox1
@@ -105,6 +106,7 @@
             this.TxtCedula.Name = "TxtCedula";
             this.TxtCedula.Size = new System.Drawing.Size(166, 20);
             this.TxtCedula.TabIndex = 18;
+            this.TxtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCedula_KeyPress);
             // 
             // label6
             // 
@@ -141,16 +143,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(152, 20);
             this.textBox7.TabIndex = 13;
-            // 
-            // TxtTelefono
-            // 
-            this.TxtTelefono.AutoSize = true;
-            this.TxtTelefono.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TxtTelefono.Location = new System.Drawing.Point(354, 39);
-            this.TxtTelefono.Name = "TxtTelefono";
-            this.TxtTelefono.Size = new System.Drawing.Size(49, 13);
-            this.TxtTelefono.TabIndex = 12;
-            this.TxtTelefono.Text = "Teléfono";
+            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
             // 
             // textBox6
             // 
@@ -158,6 +151,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(152, 20);
             this.textBox6.TabIndex = 11;
+            this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
             // 
             // TxtPassword
             // 
@@ -166,26 +160,7 @@
             this.TxtPassword.Size = new System.Drawing.Size(152, 20);
             this.TxtPassword.TabIndex = 10;
             this.TxtPassword.UseSystemPasswordChar = true;
-            // 
-            // TxtEmailRespaldo
-            // 
-            this.TxtEmailRespaldo.AutoSize = true;
-            this.TxtEmailRespaldo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TxtEmailRespaldo.Location = new System.Drawing.Point(323, 88);
-            this.TxtEmailRespaldo.Name = "TxtEmailRespaldo";
-            this.TxtEmailRespaldo.Size = new System.Drawing.Size(80, 13);
-            this.TxtEmailRespaldo.TabIndex = 9;
-            this.TxtEmailRespaldo.Text = "Email Respaldo";
-            // 
-            // TxtContrasennia
-            // 
-            this.TxtContrasennia.AutoSize = true;
-            this.TxtContrasennia.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TxtContrasennia.Location = new System.Drawing.Point(342, 123);
-            this.TxtContrasennia.Name = "TxtContrasennia";
-            this.TxtContrasennia.Size = new System.Drawing.Size(61, 13);
-            this.TxtContrasennia.TabIndex = 8;
-            this.TxtContrasennia.Text = "Contraseña";
+            this.TxtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPassword_KeyPress);
             // 
             // TxtEmail
             // 
@@ -193,6 +168,7 @@
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(162, 20);
             this.TxtEmail.TabIndex = 7;
+            this.TxtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmail_KeyPress);
             // 
             // label5
             // 
@@ -210,6 +186,7 @@
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(162, 20);
             this.TxtNombre.TabIndex = 3;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // label3
             // 
@@ -266,6 +243,7 @@
             this.BtnEditar.TabIndex = 3;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnEliminar
             // 
@@ -292,6 +270,7 @@
             this.BtnLimpiarForm.TabIndex = 5;
             this.BtnLimpiarForm.Text = "Limpiar Formulario";
             this.BtnLimpiarForm.UseVisualStyleBackColor = false;
+            this.BtnLimpiarForm.Click += new System.EventHandler(this.BtnLimpiarForm_Click);
             // 
             // BtnCerrar
             // 
@@ -310,6 +289,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(187, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 16);
@@ -339,6 +319,36 @@
             this.CbVerActivos.TabIndex = 9;
             this.CbVerActivos.Text = "Ver Usuarios Activos";
             this.CbVerActivos.UseVisualStyleBackColor = true;
+            // 
+            // TxtContrasennia
+            // 
+            this.TxtContrasennia.AutoSize = true;
+            this.TxtContrasennia.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TxtContrasennia.Location = new System.Drawing.Point(342, 123);
+            this.TxtContrasennia.Name = "TxtContrasennia";
+            this.TxtContrasennia.Size = new System.Drawing.Size(61, 13);
+            this.TxtContrasennia.TabIndex = 8;
+            this.TxtContrasennia.Text = "Contraseña";
+            // 
+            // TxtEmailRespaldo
+            // 
+            this.TxtEmailRespaldo.AutoSize = true;
+            this.TxtEmailRespaldo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TxtEmailRespaldo.Location = new System.Drawing.Point(323, 88);
+            this.TxtEmailRespaldo.Name = "TxtEmailRespaldo";
+            this.TxtEmailRespaldo.Size = new System.Drawing.Size(80, 13);
+            this.TxtEmailRespaldo.TabIndex = 9;
+            this.TxtEmailRespaldo.Text = "Email Respaldo";
+            // 
+            // TxtTelefono
+            // 
+            this.TxtTelefono.AutoSize = true;
+            this.TxtTelefono.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TxtTelefono.Location = new System.Drawing.Point(354, 39);
+            this.TxtTelefono.Name = "TxtTelefono";
+            this.TxtTelefono.Size = new System.Drawing.Size(49, 13);
+            this.TxtTelefono.TabIndex = 12;
+            this.TxtTelefono.Text = "Teléfono";
             // 
             // FrmUsuariosGestion
             // 
@@ -375,11 +385,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox CBoxTipoUsuario;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label TxtTelefono;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox TxtPassword;
-        private System.Windows.Forms.Label TxtEmailRespaldo;
-        private System.Windows.Forms.Label TxtContrasennia;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtNombre;
@@ -397,5 +404,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtCedula;
+        private System.Windows.Forms.Label TxtTelefono;
+        private System.Windows.Forms.Label TxtEmailRespaldo;
+        private System.Windows.Forms.Label TxtContrasennia;
     }
 }

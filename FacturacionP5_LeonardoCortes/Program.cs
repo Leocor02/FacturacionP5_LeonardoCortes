@@ -15,8 +15,8 @@ namespace FacturacionP5_LeonardoCortes
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Formularios.FrmMDIPrincipal());
+            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(ObjetosGlobales.MiFormularioPrincipal);
 
         }
     }
