@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.DgvListaUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.TxtCedula = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.CBoxTipoUsuario = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.TxtTelefono = new System.Windows.Forms.TextBox();
+            this.TxtEmailRespaldo = new System.Windows.Forms.TextBox();
             this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.TxtContrasennia = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtNombre = new System.Windows.Forms.TextBox();
@@ -51,9 +54,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.CbVerActivos = new System.Windows.Forms.CheckBox();
-            this.TxtContrasennia = new System.Windows.Forms.Label();
-            this.TxtEmailRespaldo = new System.Windows.Forms.Label();
-            this.TxtTelefono = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +70,12 @@
             this.DgvListaUsuarios.AllowUserToAddRows = false;
             this.DgvListaUsuarios.AllowUserToDeleteRows = false;
             this.DgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIDUsuario,
+            this.CNombre,
+            this.CNombreUsuario,
+            this.CCedula,
+            this.CRol});
             this.DgvListaUsuarios.Location = new System.Drawing.Point(12, 43);
             this.DgvListaUsuarios.MultiSelect = false;
             this.DgvListaUsuarios.Name = "DgvListaUsuarios";
@@ -77,15 +90,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.TxtCedula);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.CBoxTipoUsuario);
-            this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.TxtTelefono);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.TxtPassword);
             this.groupBox1.Controls.Add(this.TxtEmailRespaldo);
+            this.groupBox1.Controls.Add(this.TxtPassword);
             this.groupBox1.Controls.Add(this.TxtContrasennia);
             this.groupBox1.Controls.Add(this.TxtEmail);
             this.groupBox1.Controls.Add(this.label5);
@@ -99,6 +112,17 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del Usuario";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(345, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Telefono";
             // 
             // TxtCedula
             // 
@@ -137,21 +161,21 @@
             this.CBoxTipoUsuario.Size = new System.Drawing.Size(152, 21);
             this.CBoxTipoUsuario.TabIndex = 15;
             // 
-            // textBox7
+            // TxtTelefono
             // 
-            this.textBox7.Location = new System.Drawing.Point(410, 36);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(152, 20);
-            this.textBox7.TabIndex = 13;
-            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
+            this.TxtTelefono.Location = new System.Drawing.Point(410, 36);
+            this.TxtTelefono.Name = "TxtTelefono";
+            this.TxtTelefono.Size = new System.Drawing.Size(152, 20);
+            this.TxtTelefono.TabIndex = 13;
+            this.TxtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTelefono_KeyPress);
             // 
-            // textBox6
+            // TxtEmailRespaldo
             // 
-            this.textBox6.Location = new System.Drawing.Point(410, 81);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(152, 20);
-            this.textBox6.TabIndex = 11;
-            this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
+            this.TxtEmailRespaldo.Location = new System.Drawing.Point(410, 81);
+            this.TxtEmailRespaldo.Name = "TxtEmailRespaldo";
+            this.TxtEmailRespaldo.Size = new System.Drawing.Size(152, 20);
+            this.TxtEmailRespaldo.TabIndex = 11;
+            this.TxtEmailRespaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmailRespaldo_KeyPress);
             // 
             // TxtPassword
             // 
@@ -161,6 +185,16 @@
             this.TxtPassword.TabIndex = 10;
             this.TxtPassword.UseSystemPasswordChar = true;
             this.TxtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPassword_KeyPress);
+            // 
+            // TxtContrasennia
+            // 
+            this.TxtContrasennia.AutoSize = true;
+            this.TxtContrasennia.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TxtContrasennia.Location = new System.Drawing.Point(342, 123);
+            this.TxtContrasennia.Name = "TxtContrasennia";
+            this.TxtContrasennia.Size = new System.Drawing.Size(61, 13);
+            this.TxtContrasennia.TabIndex = 8;
+            this.TxtContrasennia.Text = "Contraseña";
             // 
             // TxtEmail
             // 
@@ -320,35 +354,61 @@
             this.CbVerActivos.Text = "Ver Usuarios Activos";
             this.CbVerActivos.UseVisualStyleBackColor = true;
             // 
-            // TxtContrasennia
+            // imageList1
             // 
-            this.TxtContrasennia.AutoSize = true;
-            this.TxtContrasennia.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TxtContrasennia.Location = new System.Drawing.Point(342, 123);
-            this.TxtContrasennia.Name = "TxtContrasennia";
-            this.TxtContrasennia.Size = new System.Drawing.Size(61, 13);
-            this.TxtContrasennia.TabIndex = 8;
-            this.TxtContrasennia.Text = "Contraseña";
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // TxtEmailRespaldo
+            // label8
             // 
-            this.TxtEmailRespaldo.AutoSize = true;
-            this.TxtEmailRespaldo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TxtEmailRespaldo.Location = new System.Drawing.Point(323, 88);
-            this.TxtEmailRespaldo.Name = "TxtEmailRespaldo";
-            this.TxtEmailRespaldo.Size = new System.Drawing.Size(80, 13);
-            this.TxtEmailRespaldo.TabIndex = 9;
-            this.TxtEmailRespaldo.Text = "Email Respaldo";
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(325, 84);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Email Respaldo";
             // 
-            // TxtTelefono
+            // CIDUsuario
             // 
-            this.TxtTelefono.AutoSize = true;
-            this.TxtTelefono.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TxtTelefono.Location = new System.Drawing.Point(354, 39);
-            this.TxtTelefono.Name = "TxtTelefono";
-            this.TxtTelefono.Size = new System.Drawing.Size(49, 13);
-            this.TxtTelefono.TabIndex = 12;
-            this.TxtTelefono.Text = "Teléfono";
+            this.CIDUsuario.DataPropertyName = "IDUsuario";
+            this.CIDUsuario.HeaderText = "Código Usuario";
+            this.CIDUsuario.Name = "CIDUsuario";
+            this.CIDUsuario.ReadOnly = true;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CNombreUsuario
+            // 
+            this.CNombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CNombreUsuario.DataPropertyName = "NombreUsuario";
+            this.CNombreUsuario.HeaderText = "Email";
+            this.CNombreUsuario.Name = "CNombreUsuario";
+            this.CNombreUsuario.ReadOnly = true;
+            this.CNombreUsuario.Width = 180;
+            // 
+            // CCedula
+            // 
+            this.CCedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CCedula.DataPropertyName = "Cedula";
+            this.CCedula.HeaderText = "Cédula";
+            this.CCedula.Name = "CCedula";
+            this.CCedula.ReadOnly = true;
+            this.CCedula.Width = 150;
+            // 
+            // CRol
+            // 
+            this.CRol.DataPropertyName = "Rol";
+            this.CRol.HeaderText = "Tipo Usuario";
+            this.CRol.Name = "CRol";
+            this.CRol.ReadOnly = true;
             // 
             // FrmUsuariosGestion
             // 
@@ -384,8 +444,6 @@
         private System.Windows.Forms.DataGridView DgvListaUsuarios;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox CBoxTipoUsuario;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label label5;
@@ -404,8 +462,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtCedula;
-        private System.Windows.Forms.Label TxtTelefono;
-        private System.Windows.Forms.Label TxtEmailRespaldo;
         private System.Windows.Forms.Label TxtContrasennia;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TextBox TxtTelefono;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox TxtEmailRespaldo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombreUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CRol;
     }
 }

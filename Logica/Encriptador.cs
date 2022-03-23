@@ -11,7 +11,7 @@ namespace Logica
     {
         //Esta clase contiene los métodos necesarios para encriptar
         //no solo contraseñas sino cualquier dato importante
-        //TODO: utilizar estas funciona para encriptar la cadena de conexión 
+        //TODO: utilizar esta función para encriptar la cadena de conexión 
 
         string LlavePersonalizada = "Progra5/kajhsdkjh672716762";
 

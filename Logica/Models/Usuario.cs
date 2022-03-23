@@ -131,7 +131,7 @@ namespace Logica.Models
 
             Conexion MyCnn = new Conexion();
 
-            MyCnn.ListaParametros.Add(new SqlParameter("@id", pIdUsuario))
+            MyCnn.ListaParametros.Add(new SqlParameter("@id", pIdUsuario));
 
             DataTable DatosDeUsuario = new DataTable();
 

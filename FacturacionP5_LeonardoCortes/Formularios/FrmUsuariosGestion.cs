@@ -72,6 +72,8 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
             CargarRolesDeUsuarioEnCombo();
 
+            LimpiarForm();
+
             ActivarAgregar();
         }
 
@@ -300,13 +302,12 @@ namespace FacturacionP5_LeonardoCortes.Formularios
             e.Handled = Validacion.CaracteresNumeros(e);
         }
 
-        //arreglar esta parte
-        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Validacion.CaracteresTexto(e, true);
         }
 
-        private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtEmailRespaldo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Validacion.CaracteresTexto(e, false, true);
         }
@@ -320,7 +321,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
         {
             //el siguiente código permite que al hacer clic sobre una línea del dgv
             //los datos de ese usuario se muestren en el formulario y además el objeto
-            //de usuario local también se carga
+            //de usuario local también se carga con dicha info
 
             if (DgvListaUsuarios.SelectedRows.Count == 1)
             {
@@ -348,13 +349,8 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                     CBoxTipoUsuario.SelectedValue = MiUsuarioLocal.MiRol.IDUsurioRol;
 
                     ActivarEditarYEliminar();
-
-
-
                 }
             }
-
-
         }
 
         private void BtnLimpiarForm_Click(object sender, EventArgs e)
@@ -364,6 +360,11 @@ namespace FacturacionP5_LeonardoCortes.Formularios
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
