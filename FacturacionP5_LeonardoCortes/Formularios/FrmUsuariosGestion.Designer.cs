@@ -30,7 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.DgvListaUsuarios = new System.Windows.Forms.DataGridView();
+            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtCedula = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,12 +61,6 @@
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.CbVerActivos = new System.Windows.Forms.CheckBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,46 @@
             this.DgvListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaUsuarios_CellClick);
             this.DgvListaUsuarios.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaUsuarios_DataBindingComplete);
             // 
+            // CIDUsuario
+            // 
+            this.CIDUsuario.DataPropertyName = "IDUsuario";
+            this.CIDUsuario.HeaderText = "Código Usuario";
+            this.CIDUsuario.Name = "CIDUsuario";
+            this.CIDUsuario.ReadOnly = true;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CNombreUsuario
+            // 
+            this.CNombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CNombreUsuario.DataPropertyName = "NombreUsuario";
+            this.CNombreUsuario.HeaderText = "Email";
+            this.CNombreUsuario.Name = "CNombreUsuario";
+            this.CNombreUsuario.ReadOnly = true;
+            this.CNombreUsuario.Width = 180;
+            // 
+            // CCedula
+            // 
+            this.CCedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CCedula.DataPropertyName = "Cedula";
+            this.CCedula.HeaderText = "Cédula";
+            this.CCedula.Name = "CCedula";
+            this.CCedula.ReadOnly = true;
+            this.CCedula.Width = 150;
+            // 
+            // CRol
+            // 
+            this.CRol.DataPropertyName = "Rol";
+            this.CRol.HeaderText = "Tipo Usuario";
+            this.CRol.Name = "CRol";
+            this.CRol.ReadOnly = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label8);
@@ -113,6 +153,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del Usuario";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(325, 84);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Email Respaldo";
             // 
             // label7
             // 
@@ -184,6 +234,7 @@
             this.TxtPassword.Size = new System.Drawing.Size(152, 20);
             this.TxtPassword.TabIndex = 10;
             this.TxtPassword.UseSystemPasswordChar = true;
+            this.TxtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             this.TxtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPassword_KeyPress);
             // 
             // TxtContrasennia
@@ -359,56 +410,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(325, 84);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 13);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Email Respaldo";
-            // 
-            // CIDUsuario
-            // 
-            this.CIDUsuario.DataPropertyName = "IDUsuario";
-            this.CIDUsuario.HeaderText = "Código Usuario";
-            this.CIDUsuario.Name = "CIDUsuario";
-            this.CIDUsuario.ReadOnly = true;
-            // 
-            // CNombre
-            // 
-            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CNombre.DataPropertyName = "Nombre";
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            // 
-            // CNombreUsuario
-            // 
-            this.CNombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CNombreUsuario.DataPropertyName = "NombreUsuario";
-            this.CNombreUsuario.HeaderText = "Email";
-            this.CNombreUsuario.Name = "CNombreUsuario";
-            this.CNombreUsuario.ReadOnly = true;
-            this.CNombreUsuario.Width = 180;
-            // 
-            // CCedula
-            // 
-            this.CCedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CCedula.DataPropertyName = "Cedula";
-            this.CCedula.HeaderText = "Cédula";
-            this.CCedula.Name = "CCedula";
-            this.CCedula.ReadOnly = true;
-            this.CCedula.Width = 150;
-            // 
-            // CRol
-            // 
-            this.CRol.DataPropertyName = "Rol";
-            this.CRol.HeaderText = "Tipo Usuario";
-            this.CRol.Name = "CRol";
-            this.CRol.ReadOnly = true;
             // 
             // FrmUsuariosGestion
             // 

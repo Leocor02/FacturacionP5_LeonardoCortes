@@ -5,8 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
+
 
 namespace FacturacionP5_LeonardoCortes.Formularios
 {
@@ -37,10 +41,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
         private void FrmUsuariosGestion_Load(object sender, EventArgs e)
         {
-
             ListarUsuariosActivos();
-
-    
         }
 
         private void ListarUsuariosActivos()
@@ -109,6 +110,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
         private void CargarRolesDeUsuarioEnCombo()
         {
+            
             //crear un objeto de tipo usuario rol
 
             Logica.Models.UsuarioRol ObjRolDeUsuario =  new Logica.Models.UsuarioRol();
@@ -205,6 +207,10 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            Validacion.ValidarEmail(TxtEmail.Text);
+
+            Validacion.ContrasenniaSegura(TxtPassword.Text);
+
             //en la secuencia nos explica, pero se debe realizar una serie de validaciones de
             //datos mínimos y de tipos y extenciones correctas a cada campo
 
@@ -217,10 +223,6 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
                 if (RespuestaDelUsuario == DialogResult.Yes)
                 {
-
-
-
-
                     //Temporal: se agregan los valores de los atributos del objeto local
                     MiUsuarioLocal.Nombre = TxtNombre.Text.Trim();
                     MiUsuarioLocal.NombreUsuario = TxtEmail.Text.Trim();
@@ -231,7 +233,6 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                     MiUsuarioLocal.MiRol.IDUsurioRol = Convert.ToInt32(CBoxTipoUsuario.SelectedValue);
 
                     //solo en este caso vamos a seguir la numeración de la secuencia "SqUsuarioAgregar"
-
 
                     //paso 1.1 y 1.2 está en el constructor
 
@@ -255,6 +256,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                             //paso 1.8
                             MessageBox.Show("Ha ocurrido un error y el usuario no se guardó", ":(", MessageBoxButtons.OK);
                         }
+
 
                         ListarUsuariosActivos();
 
@@ -368,5 +370,12 @@ namespace FacturacionP5_LeonardoCortes.Formularios
         {
 
         }
+
+        private void TxtPassword_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
+
+

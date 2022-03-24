@@ -4,12 +4,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace FacturacionP5_LeonardoCortes
 {
     public static class Validacion
     {
         //TO DO: crear validador para el email 
+       public static bool ValidarEmail(string Email)
+        {
+            string emailFormato;
+            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(Email, emailFormato))
+            {
+                if (Regex.Replace(Email, emailFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Email inválido", ":(", MessageBoxButtons.OK);
+                return false;
+            }
+        }       
+
+        public static bool ContrasenniaSegura(string Password)
+        {
+            bool mayuscula = false, minuscula = false, numero = false, caracterEspecial = false;
+            for (int i = 0; i < Password.Length; i++)
+            {
+                if (Char.IsUpper(Password, i))
+                {
+                    mayuscula = true;
+                }
+                else if (Char.IsLower(Password, i))
+                {
+                    minuscula = true;
+                }
+                else if (Char.IsDigit(Password, i))
+                {
+                    numero = true;
+                }
+                else
+                {
+                    caracterEspecial = true;
+                }
+            }
+            if (mayuscula && minuscula && numero && caracterEspecial && Password.Length >= 8)
+            {
+                return true;
+            }
+            MessageBox.Show("Contraseña inválida, se necesitan mínimo 8 caracteres", ":(", MessageBoxButtons.OK);
+            return false;
+        }
+
+
 
         private static char g_Gen_DecimalSeparator = Convert.ToChar(System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToString());
 
