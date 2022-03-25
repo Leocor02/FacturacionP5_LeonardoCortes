@@ -489,22 +489,46 @@ namespace FacturacionP5_LeonardoCortes.Formularios
             if (MiUsuarioLocal.IDUsuario > 0)
             {
                 Logica.Models.Usuario UsuarioConsulta = new Logica.Models.Usuario();    
+               
                 UsuarioConsulta = MiUsuarioLocal.ConsultarPorID(MiUsuarioLocal.IDUsuario);
+                
                 if (UsuarioConsulta.IDUsuario > 0)
                 {
-                    string Mensaje = string.Format("Desea continuar con la eliminación del usuario {0}", MiUsuarioLocal.Nombre);
+                    string Mensaje = "";
+
+                    if (CbVerActivos.Checked)
+                    {
+                        Mensaje = string.Format("Desea continuar con la eliminación del usuario {0}", MiUsuarioLocal.Nombre);
+                    }
+                    else
+                    {
+                        Mensaje = string.Format("Desea continuar con la activación del usuario {0}", MiUsuarioLocal.Nombre);
+                    }
 
                     DialogResult resp = MessageBox.Show(Mensaje, "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (resp == DialogResult.Yes)
                     {
-                        if (MiUsuarioLocal.Eliminar())
+                        if (CbVerActivos.Checked)
                         {
-                            MessageBox.Show("Usuario eliminado correctamente", ":/", MessageBoxButtons.OK);
-                            ListarUsuariosActivos();
-                            LimpiarForm();
-                            ActivarAgregar();
+                            if (MiUsuarioLocal.Eliminar())
+                            {
+                                MessageBox.Show("Usuario eliminado correctamente", ":/", MessageBoxButtons.OK);
+
+                            }
                         }
+                        else
+                        {
+                            if (MiUsuarioLocal.Activar())
+                            {
+                                MessageBox.Show("Usuario activado correctamente", ":/", MessageBoxButtons.OK);
+
+                            }
+                        }
+                        CbVerActivos.Checked = true;
+                        ListarUsuariosActivos();
+                        LimpiarForm();
+                        ActivarAgregar();  
                     }
                 }
             }

@@ -113,8 +113,20 @@ namespace Logica.Models
 
             MyCnn.ListaParametros.Add(new SqlParameter("@id", IDUsuario));
 
-
             if (MyCnn.EjecutarUpdateDeleteInsert("SpUsuariosDesactivar") > 0) R = true; 
+
+            return R;
+        }
+
+        public bool Activar()
+        {
+            bool R = false;
+
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaParametros.Add(new SqlParameter("@id", IDUsuario));
+
+            if (MyCnn.EjecutarUpdateDeleteInsert("SpUsuariosActivar") > 0) R = true;
 
             return R;
         }
