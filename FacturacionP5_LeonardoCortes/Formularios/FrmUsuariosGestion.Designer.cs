@@ -57,7 +57,6 @@
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiarForm = new System.Windows.Forms.Button();
-            this.BtnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.CbVerActivos = new System.Windows.Forms.CheckBox();
@@ -82,6 +81,7 @@
             this.DgvListaUsuarios.Name = "DgvListaUsuarios";
             this.DgvListaUsuarios.ReadOnly = true;
             this.DgvListaUsuarios.RowHeadersVisible = false;
+            this.DgvListaUsuarios.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.DgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvListaUsuarios.Size = new System.Drawing.Size(704, 202);
             this.DgvListaUsuarios.TabIndex = 0;
@@ -325,7 +325,7 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(41, 467);
+            this.BtnAgregar.Location = new System.Drawing.Point(96, 467);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(90, 45);
             this.BtnAgregar.TabIndex = 2;
@@ -339,7 +339,7 @@
             this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEditar.ForeColor = System.Drawing.Color.White;
-            this.BtnEditar.Location = new System.Drawing.Point(173, 467);
+            this.BtnEditar.Location = new System.Drawing.Point(233, 467);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(96, 45);
             this.BtnEditar.TabIndex = 3;
@@ -353,7 +353,7 @@
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(315, 467);
+            this.BtnEliminar.Location = new System.Drawing.Point(380, 467);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(86, 45);
             this.BtnEliminar.TabIndex = 4;
@@ -367,26 +367,13 @@
             this.BtnLimpiarForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLimpiarForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLimpiarForm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnLimpiarForm.Location = new System.Drawing.Point(450, 467);
+            this.BtnLimpiarForm.Location = new System.Drawing.Point(513, 467);
             this.BtnLimpiarForm.Name = "BtnLimpiarForm";
             this.BtnLimpiarForm.Size = new System.Drawing.Size(100, 45);
             this.BtnLimpiarForm.TabIndex = 5;
             this.BtnLimpiarForm.Text = "Limpiar Formulario";
             this.BtnLimpiarForm.UseVisualStyleBackColor = false;
             this.BtnLimpiarForm.Click += new System.EventHandler(this.BtnLimpiarForm_Click);
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnCerrar.Location = new System.Drawing.Point(590, 467);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(90, 45);
-            this.BtnCerrar.TabIndex = 6;
-            this.BtnCerrar.Text = "Cancelar";
-            this.BtnCerrar.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -439,7 +426,6 @@
             this.Controls.Add(this.CbVerActivos);
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.BtnLimpiarForm);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnEditar);
@@ -476,7 +462,6 @@
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnLimpiarForm;
-        private System.Windows.Forms.Button BtnCerrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.CheckBox CbVerActivos;

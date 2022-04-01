@@ -8,30 +8,35 @@ using System.Text.RegularExpressions;
 
 namespace FacturacionP5_LeonardoCortes
 {
-    //Codigo del profe para validar un email
-    /*const string EmailRegex =
-        @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
-        + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
-		[0-9]{1,2}|25[0-5]|2[0-4][0-9])\."
-        + @"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
-		[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
-        + @"([a-zA-Z0-9]+[\w-]+\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$";
-
-        public static bool ValidarEmail(string email)
-        {
-            if (email != null)
-            {
-                return Regex.IsMatch(email, EmailRegex);
-            }
-            else
-            { return false; }
-
-        }*/
+   
 
     public static class Validacion
     {
+
+        //Codigo del profe para validar un email
+        const string EmailRegex =
+            @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
+            + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+            [0-9]{1,2}|25[0-5]|2[0-4][0-9])\."
+            + @"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+            [0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+            + @"([a-zA-Z0-9]+[\w-]+\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$";
+
+            public static bool ValidarEmail(string email)
+            {
+                if (email != null)
+                {
+                    return Regex.IsMatch(email, EmailRegex);
+                }
+                else
+                { return false; }
+
+            }
+
+
+
         //TO DO: crear validador para el email 
-       public static bool ValidarEmail(string Email)
+       /* public static bool ValidarEmail(string Email)
         {
             string emailFormato;
             emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
@@ -50,7 +55,7 @@ namespace FacturacionP5_LeonardoCortes
             {
                 return false;
             }
-        }   
+        }  */
 
         public static bool ContrasenniaSegura(string Password)
         {

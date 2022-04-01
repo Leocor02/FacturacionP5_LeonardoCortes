@@ -12,7 +12,7 @@ namespace Logica.Models
     {
         //Atributos simples
         public int IDUsuario { get; set; }
-        public string Nombre { get; set; }    
+        public string Nombre { get; set; }
         public string NombreUsuario { get; set; }
         public string Telefono { get; set; }
         public string CorreoDeRespaldo { get; set; }
@@ -55,7 +55,7 @@ namespace Logica.Models
             {
                 R = true;
             }
-            
+
             return R;
         }
 
@@ -82,8 +82,8 @@ namespace Logica.Models
                 if (!string.IsNullOrEmpty(this.Contrasennia))
                 {
                     Encriptador MiEncriptador = new Encriptador();
-                    
-                    PassWordEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);                   
+
+                    PassWordEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
                 }
 
                 //se agregan los parámetros del SP
@@ -99,7 +99,7 @@ namespace Logica.Models
                 int Resultado = MyCnn.EjecutarUpdateDeleteInsert("SpUsuariosEditar");
 
                 if (Resultado > 0) R = true;
-            
+
             }
 
             return R;
@@ -113,7 +113,7 @@ namespace Logica.Models
 
             MyCnn.ListaParametros.Add(new SqlParameter("@id", IDUsuario));
 
-            if (MyCnn.EjecutarUpdateDeleteInsert("SpUsuariosDesactivar") > 0) R = true; 
+            if (MyCnn.EjecutarUpdateDeleteInsert("SpUsuariosDesactivar") > 0) R = true;
 
             return R;
         }
@@ -130,6 +130,46 @@ namespace Logica.Models
 
             return R;
         }
+
+
+        public Usuario ValidarIngreso(string pUsuario, string pContrasennia)
+        {
+            Usuario R = new Usuario();
+
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaParametros.Add(new SqlParameter("@usuario", pUsuario));
+
+            Encriptador MiEncriptador = new Encriptador();
+            string ContrasenniaEncriptada = MiEncriptador.EncriptarEnUnSentido(pContrasennia);
+            MyCnn.ListaParametros.Add(new SqlParameter("@contrasennia", ContrasenniaEncriptada));
+
+            DataTable DatosDeUsuario = new DataTable();
+
+            DatosDeUsuario = MyCnn.EjecutarSelect("SpUsuariosValidarIngreso");
+
+            if (DatosDeUsuario != null && DatosDeUsuario.Rows.Count > 0)
+            {
+                DataRow MisDatos = DatosDeUsuario.Rows[0];
+
+                R.IDUsuario = Convert.ToInt32(MisDatos["IDUsuario"]);
+                R.Nombre = Convert.ToString(MisDatos["Nombre"]);
+                R.NombreUsuario = Convert.ToString(MisDatos["NombreUsuario"]);
+                R.Cedula = Convert.ToString(MisDatos["Cedula"]);
+                R.Telefono = Convert.ToString(MisDatos["Telefono"]);
+                R.CorreoDeRespaldo = Convert.ToString(MisDatos["CorreoDeRespaldo"]);
+                R.Contrasennia = Convert.ToString(MisDatos["Contrasennia"]);
+
+                R.Activo = Convert.ToBoolean(MisDatos["Activo"]);
+
+                R.MiRol.IDUsurioRol = Convert.ToInt32(MisDatos["IDUsuarioRol"]);
+                R.MiRol.Rol = Convert.ToString(MisDatos["Rol"]);
+            }
+
+            return R;
+        }
+
+
 
         public bool ConsultarPorCedula()
         {
