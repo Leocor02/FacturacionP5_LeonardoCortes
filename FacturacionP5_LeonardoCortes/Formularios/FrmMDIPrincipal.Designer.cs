@@ -38,12 +38,6 @@
             this.MnuEmpresaGestion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.MnuProveedoresGestion = new System.Windows.Forms.ToolStripMenuItem();
-            this.pROCESOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.cobroFacturasDeCréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.notasDeCréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facruraciónPorRangoDeFechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +47,12 @@
             this.listadoDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.listaDeImpuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pROCESOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuFacturar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cobroFacturasDeCréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.notasDeCréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aCERCADEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -131,48 +131,6 @@
             this.MnuProveedoresGestion.Size = new System.Drawing.Size(198, 22);
             this.MnuProveedoresGestion.Text = "Gestión de proveedores";
             // 
-            // pROCESOSToolStripMenuItem
-            // 
-            this.pROCESOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.facturaciónToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.cobroFacturasDeCréditoToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.notasDeCréditoToolStripMenuItem});
-            this.pROCESOSToolStripMenuItem.Name = "pROCESOSToolStripMenuItem";
-            this.pROCESOSToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.pROCESOSToolStripMenuItem.Text = "PROCESOS";
-            // 
-            // facturaciónToolStripMenuItem
-            // 
-            this.facturaciónToolStripMenuItem.Name = "facturaciónToolStripMenuItem";
-            this.facturaciónToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.facturaciónToolStripMenuItem.Text = "FACTURACIÓN";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(209, 6);
-            // 
-            // cobroFacturasDeCréditoToolStripMenuItem
-            // 
-            this.cobroFacturasDeCréditoToolStripMenuItem.Enabled = false;
-            this.cobroFacturasDeCréditoToolStripMenuItem.Name = "cobroFacturasDeCréditoToolStripMenuItem";
-            this.cobroFacturasDeCréditoToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.cobroFacturasDeCréditoToolStripMenuItem.Text = "Cobro Facturas de Crédito";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(209, 6);
-            // 
-            // notasDeCréditoToolStripMenuItem
-            // 
-            this.notasDeCréditoToolStripMenuItem.Enabled = false;
-            this.notasDeCréditoToolStripMenuItem.Name = "notasDeCréditoToolStripMenuItem";
-            this.notasDeCréditoToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.notasDeCréditoToolStripMenuItem.Text = "Notas de Crédito";
-            // 
             // rEPORTESToolStripMenuItem
             // 
             this.rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -233,6 +191,50 @@
             this.listaDeImpuestosToolStripMenuItem.Name = "listaDeImpuestosToolStripMenuItem";
             this.listaDeImpuestosToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.listaDeImpuestosToolStripMenuItem.Text = "Lista de Impuestos";
+            // 
+            // pROCESOSToolStripMenuItem
+            // 
+            this.pROCESOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MnuFacturar,
+            this.toolStripSeparator3,
+            this.cobroFacturasDeCréditoToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.notasDeCréditoToolStripMenuItem});
+            this.pROCESOSToolStripMenuItem.Name = "pROCESOSToolStripMenuItem";
+            this.pROCESOSToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.pROCESOSToolStripMenuItem.Text = "PROCESOS";
+            // 
+            // MnuFacturar
+            // 
+            this.MnuFacturar.Name = "MnuFacturar";
+            this.MnuFacturar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.MnuFacturar.Size = new System.Drawing.Size(212, 22);
+            this.MnuFacturar.Text = "FACTURACIÓN";
+            this.MnuFacturar.Click += new System.EventHandler(this.MnuFacturar_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(209, 6);
+            // 
+            // cobroFacturasDeCréditoToolStripMenuItem
+            // 
+            this.cobroFacturasDeCréditoToolStripMenuItem.Enabled = false;
+            this.cobroFacturasDeCréditoToolStripMenuItem.Name = "cobroFacturasDeCréditoToolStripMenuItem";
+            this.cobroFacturasDeCréditoToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.cobroFacturasDeCréditoToolStripMenuItem.Text = "Cobro Facturas de Crédito";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(209, 6);
+            // 
+            // notasDeCréditoToolStripMenuItem
+            // 
+            this.notasDeCréditoToolStripMenuItem.Enabled = false;
+            this.notasDeCréditoToolStripMenuItem.Name = "notasDeCréditoToolStripMenuItem";
+            this.notasDeCréditoToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.notasDeCréditoToolStripMenuItem.Text = "Notas de Crédito";
             // 
             // aCERCADEToolStripMenuItem
             // 
@@ -316,7 +318,7 @@
         private System.Windows.Forms.ToolStripMenuItem MnuEmpresaGestion;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem MnuProveedoresGestion;
-        private System.Windows.Forms.ToolStripMenuItem facturaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MnuFacturar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem cobroFacturasDeCréditoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
