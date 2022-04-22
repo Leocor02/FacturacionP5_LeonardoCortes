@@ -24,9 +24,5 @@ namespace Logica.Models
             Miproducto = new Producto();    
         }
 
-
-
-
-
     }
 }

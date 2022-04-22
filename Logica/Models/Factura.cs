@@ -20,10 +20,10 @@ namespace Logica.Models
         public string Anotaciones { get; set; }
 
         //composiciones simples
-        FacturaTipo MiTipo { get; set; }    
-        Empresa MiEmpresa { get; set; } 
-        Cliente MiCliente {  get; set; }    
-        Usuario MiUsuario {  get; set;}
+        public FacturaTipo MiTipo { get; set; }
+        public Empresa MiEmpresa { get; set; }
+        public Cliente MiCliente {  get; set; }
+        public Usuario MiUsuario {  get; set;}
 
         //composiciones multiples
         public List<FacturaDetalle> DetalleItems { get; set; }
@@ -75,6 +75,18 @@ namespace Logica.Models
         private void Totalizar()
         {
            //TO DO: Asignar valores a los rubros decimales
+        }
+
+        public DataTable AsignarEsquemaDetalle()
+        {
+            DataTable R = new DataTable();
+
+            Conexion MyCnn = new Conexion();
+
+            R = MyCnn.EjecutarSelect("SpFacturaDetalleEsquema", true);
+
+            R.PrimaryKey = null;
+            return R;
         }
 
     }
