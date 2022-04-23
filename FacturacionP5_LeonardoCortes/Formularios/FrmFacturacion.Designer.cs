@@ -49,6 +49,14 @@
             this.CboxEmpresa = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DgvListaItems = new System.Windows.Forms.DataGridView();
+            this.CIDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcionItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCantidadFacturada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPorcentajeDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CSubTotalLinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CImpuestosLinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotalLinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnItemAgregar = new System.Windows.Forms.Button();
             this.BtnItemModificar = new System.Windows.Forms.Button();
@@ -66,14 +74,6 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.LblTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.CIDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDescripcionItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCantidadFacturada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPorcentajeDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CSubTotalLinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CImpuestosLinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotalLinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.PanEncabezado.SuspendLayout();
@@ -231,6 +231,7 @@
             this.TxtIdCliente.Name = "TxtIdCliente";
             this.TxtIdCliente.Size = new System.Drawing.Size(113, 20);
             this.TxtIdCliente.TabIndex = 7;
+            this.TxtIdCliente.DoubleClick += new System.EventHandler(this.TxtIdCliente_DoubleClick);
             // 
             // label4
             // 
@@ -345,6 +346,69 @@
             this.DgvListaItems.Size = new System.Drawing.Size(806, 339);
             this.DgvListaItems.TabIndex = 4;
             this.DgvListaItems.VirtualMode = true;
+            // 
+            // CIDProducto
+            // 
+            this.CIDProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDProducto.DataPropertyName = "IDProducto";
+            this.CIDProducto.HeaderText = "Código item";
+            this.CIDProducto.Name = "CIDProducto";
+            this.CIDProducto.ReadOnly = true;
+            this.CIDProducto.Width = 75;
+            // 
+            // CDescripcionItem
+            // 
+            this.CDescripcionItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CDescripcionItem.DataPropertyName = "DescripcionItem";
+            this.CDescripcionItem.HeaderText = "Descripción";
+            this.CDescripcionItem.Name = "CDescripcionItem";
+            this.CDescripcionItem.ReadOnly = true;
+            // 
+            // CCantidadFacturada
+            // 
+            this.CCantidadFacturada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CCantidadFacturada.DataPropertyName = "CantidadFacturada";
+            this.CCantidadFacturada.HeaderText = "Cantidad";
+            this.CCantidadFacturada.Name = "CCantidadFacturada";
+            this.CCantidadFacturada.ReadOnly = true;
+            this.CCantidadFacturada.Width = 70;
+            // 
+            // CPrecioUnitario
+            // 
+            this.CPrecioUnitario.DataPropertyName = "PrecioUnitario";
+            this.CPrecioUnitario.HeaderText = "Precio unit";
+            this.CPrecioUnitario.Name = "CPrecioUnitario";
+            this.CPrecioUnitario.ReadOnly = true;
+            // 
+            // CPorcentajeDescuento
+            // 
+            this.CPorcentajeDescuento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CPorcentajeDescuento.DataPropertyName = "PorcentajeDescuento";
+            this.CPorcentajeDescuento.HeaderText = "% Desc";
+            this.CPorcentajeDescuento.Name = "CPorcentajeDescuento";
+            this.CPorcentajeDescuento.ReadOnly = true;
+            this.CPorcentajeDescuento.Width = 50;
+            // 
+            // CSubTotalLinea
+            // 
+            this.CSubTotalLinea.DataPropertyName = "SubTotalLinea";
+            this.CSubTotalLinea.HeaderText = "Sub Total";
+            this.CSubTotalLinea.Name = "CSubTotalLinea";
+            this.CSubTotalLinea.ReadOnly = true;
+            // 
+            // CImpuestosLinea
+            // 
+            this.CImpuestosLinea.DataPropertyName = "ImpuestosLinea";
+            this.CImpuestosLinea.HeaderText = "Impuestos";
+            this.CImpuestosLinea.Name = "CImpuestosLinea";
+            this.CImpuestosLinea.ReadOnly = true;
+            // 
+            // CTotalLinea
+            // 
+            this.CTotalLinea.DataPropertyName = "TotalLinea";
+            this.CTotalLinea.HeaderText = "TOTAL";
+            this.CTotalLinea.Name = "CTotalLinea";
+            this.CTotalLinea.ReadOnly = true;
             // 
             // tableLayoutPanel2
             // 
@@ -595,69 +659,6 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "TOTAL";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CIDProducto
-            // 
-            this.CIDProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CIDProducto.DataPropertyName = "IDProducto";
-            this.CIDProducto.HeaderText = "Código item";
-            this.CIDProducto.Name = "CIDProducto";
-            this.CIDProducto.ReadOnly = true;
-            this.CIDProducto.Width = 75;
-            // 
-            // CDescripcionItem
-            // 
-            this.CDescripcionItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CDescripcionItem.DataPropertyName = "DescripcionItem";
-            this.CDescripcionItem.HeaderText = "Descripción";
-            this.CDescripcionItem.Name = "CDescripcionItem";
-            this.CDescripcionItem.ReadOnly = true;
-            // 
-            // CCantidadFacturada
-            // 
-            this.CCantidadFacturada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CCantidadFacturada.DataPropertyName = "CantidadFacturada";
-            this.CCantidadFacturada.HeaderText = "Cantidad";
-            this.CCantidadFacturada.Name = "CCantidadFacturada";
-            this.CCantidadFacturada.ReadOnly = true;
-            this.CCantidadFacturada.Width = 70;
-            // 
-            // CPrecioUnitario
-            // 
-            this.CPrecioUnitario.DataPropertyName = "PrecioUnitario";
-            this.CPrecioUnitario.HeaderText = "Precio unit";
-            this.CPrecioUnitario.Name = "CPrecioUnitario";
-            this.CPrecioUnitario.ReadOnly = true;
-            // 
-            // CPorcentajeDescuento
-            // 
-            this.CPorcentajeDescuento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CPorcentajeDescuento.DataPropertyName = "PorcentajeDescuento";
-            this.CPorcentajeDescuento.HeaderText = "% Desc";
-            this.CPorcentajeDescuento.Name = "CPorcentajeDescuento";
-            this.CPorcentajeDescuento.ReadOnly = true;
-            this.CPorcentajeDescuento.Width = 50;
-            // 
-            // CSubTotalLinea
-            // 
-            this.CSubTotalLinea.DataPropertyName = "SubTotalLinea";
-            this.CSubTotalLinea.HeaderText = "Sub Total";
-            this.CSubTotalLinea.Name = "CSubTotalLinea";
-            this.CSubTotalLinea.ReadOnly = true;
-            // 
-            // CImpuestosLinea
-            // 
-            this.CImpuestosLinea.DataPropertyName = "ImpuestosLinea";
-            this.CImpuestosLinea.HeaderText = "Impuestos";
-            this.CImpuestosLinea.Name = "CImpuestosLinea";
-            this.CImpuestosLinea.ReadOnly = true;
-            // 
-            // CTotalLinea
-            // 
-            this.CTotalLinea.DataPropertyName = "TotalLinea";
-            this.CTotalLinea.HeaderText = "TOTAL";
-            this.CTotalLinea.Name = "CTotalLinea";
-            this.CTotalLinea.ReadOnly = true;
             // 
             // FrmFacturacion
             // 

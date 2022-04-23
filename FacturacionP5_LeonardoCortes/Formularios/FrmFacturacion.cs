@@ -106,5 +106,23 @@ namespace FacturacionP5_LeonardoCortes.Formularios
             CboxTipoFactura.DataSource = FacturaLocal.MiTipo.Listar();
             CboxTipoFactura.SelectedIndex = -1;
         }
+
+        private void TxtIdCliente_DoubleClick(object sender, EventArgs e)
+        {
+            //Al dar doble clicken el cuadro de texto se abre la ventana de búsqueda de clientes
+            Form MiFormBuscarCliente = new Formularios.FrmClienteSeleccionar();   
+
+            DialogResult respuesta = MiFormBuscarCliente.ShowDialog();
+
+            if (respuesta == DialogResult.OK)
+            {
+                LblNombreCliente.Text = FacturaLocal.MiCliente.Nombre;
+                TxtIdCliente.Text = FacturaLocal.MiCliente.IDCliente.ToString();    
+            }
+            else 
+            {
+                LblNombreCliente.Text = "";
+            }
+        }
     }   
 }

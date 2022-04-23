@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.DgvLista = new System.Windows.Forms.DataGridView();
             this.CIDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -35,6 +36,7 @@
             this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnAceptar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
+            this.TmrBuscarCliente = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DgvLista)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +50,8 @@
             this.TxtBuscar.Size = new System.Drawing.Size(291, 26);
             this.TxtBuscar.TabIndex = 0;
             this.TxtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBuscar_KeyDown);
+            this.TxtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBuscar_KeyUp);
             // 
             // DgvLista
             // 
@@ -68,6 +72,7 @@
             this.DgvLista.Size = new System.Drawing.Size(519, 186);
             this.DgvLista.TabIndex = 1;
             this.DgvLista.VirtualMode = true;
+            this.DgvLista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvLista_DataBindingComplete);
             // 
             // CIDCliente
             // 
@@ -103,6 +108,7 @@
             this.BtnAceptar.TabIndex = 2;
             this.BtnAceptar.Text = "Seleccionar";
             this.BtnAceptar.UseVisualStyleBackColor = false;
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // BtnCancelar
             // 
@@ -116,6 +122,12 @@
             this.BtnCancelar.TabIndex = 3;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // TmrBuscarCliente
+            // 
+            this.TmrBuscarCliente.Interval = 800;
+            this.TmrBuscarCliente.Tick += new System.EventHandler(this.TmrBuscarCliente_Tick);
             // 
             // FrmClienteSeleccionar
             // 
@@ -149,5 +161,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
+        private System.Windows.Forms.Timer TmrBuscarCliente;
     }
 }
