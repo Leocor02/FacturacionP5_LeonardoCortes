@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    internal class ProductoCategoria
+    public class ProductoCategoria
     {
         public int IDProductoCategoria { get; set; }
         public string Categoria { get; set; }

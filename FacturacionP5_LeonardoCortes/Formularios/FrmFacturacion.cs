@@ -32,6 +32,39 @@ namespace FacturacionP5_LeonardoCortes.Formularios
             ListaDetallesLocal = new DataTable();   
         }
 
+        private void Totalizar()
+        {
+            if (ListaDetallesLocal != null && ListaDetallesLocal.Rows.Count > 0)
+            {
+                //se recorre cada linea del detalle y se sumarizan los montos correspondientes
+                decimal Subt = 0;
+                decimal Descuentos = 0;
+                decimal Impuestos = 0;
+                decimal Total = 0;
+
+
+                foreach (DataRow item in ListaDetallesLocal.Rows)
+                {
+                    //se acumulan los datos en las variables de totalización
+                    Subt += Convert.ToDecimal(item["CantidadFacturada"]) * Convert.ToDecimal(item["PrecioUnitario"]);
+
+                    Descuentos += Subt * Convert.ToDecimal(item["PoecentajeDescuento"]) / 100;
+
+                    Impuestos += Convert.ToDecimal(item["ImpuestosLinea"]);
+
+                    Total += Convert.ToDecimal(item["TotalLinea"]);
+                }
+
+                //una vez tenemos las sumas se presentan en los txt correspondientes usando un formato fácil de leer para el usuario 
+
+                LblSubTotal.Text = string.Format("{0:N2}", Subt);
+                LblDescuentos.Text = string.Format("{0:N2}", Descuentos);
+                LblImpuestos.Text = string.Format("{0:N2}", Impuestos);
+                LblTotal.Text = string.Format("{0:N2}", Total);
+
+            }
+        }
+
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             Close();
@@ -122,6 +155,70 @@ namespace FacturacionP5_LeonardoCortes.Formularios
             else 
             {
                 LblNombreCliente.Text = "";
+            }
+        }
+
+        private void BtnItemAgregar_Click(object sender, EventArgs e)
+        {
+            Form FormSeleccionDeItem = new FrmFacturacionItemGestion();
+
+            DialogResult resp = FormSeleccionDeItem.ShowDialog();
+
+            if (resp == DialogResult.OK)
+            {
+                //se ha seleccionado correctamente un item
+
+                DgvListaItems.DataSource = ListaDetallesLocal;
+
+                Totalizar();
+            }
+        }
+
+        private void CargarDetalleDeFactura()
+        {
+            //cragar en la composición los detalles a partir del datatable de detalles local
+
+            foreach (DataRow item in ListaDetallesLocal.Rows)
+            {
+                Logica.Models.FacturaDetalle detalle = new Logica.Models.FacturaDetalle();
+
+                detalle.CantidadFacturada = Convert.ToDecimal(item["CantidadFacturada"]);
+                detalle.DescripcionItem = Convert.ToString(item["DescripcionItem"]);
+                detalle.ImpuestoLinea = Convert.ToDecimal(item["ImpuestosLinea"]);
+                detalle.Miproducto.IDProducto = Convert.ToInt32(item["ImpuestosLinea"]);
+                detalle.PrecioUnitario = Convert.ToDecimal(item["PrecioUnitario"]);
+                detalle.SubTotalLinea = Convert.ToDecimal(item["SubTotalLinea"]);
+                detalle.TotalLinea = Convert.ToDecimal(item["TotalLinea"]);
+
+                FacturaLocal.DetalleItems.Add(detalle);
+            }
+        }
+
+        private void BtnFacturar_Click(object sender, EventArgs e)
+        {
+            //TO DO: efectuar las validaciones correpondientes ej, que la fecha no sea mayor a la actual y que
+            //se haya seleccionado datos mínimos como cliente, usuario etc
+            if (ListaDetallesLocal != null && ListaDetallesLocal.Rows.Count > 0)
+            {
+                //datos del encabezado
+                FacturaLocal.MiCliente.IDCliente = Convert.ToInt32(TxtIdCliente.Text.Trim());
+                FacturaLocal.MiTipo.IDFacturaTipo = Convert.ToInt32(CboxTipoFactura.SelectedValue);
+                FacturaLocal.MiUsuario.IDUsuario = Convert.ToInt32(CboxUsuario.SelectedValue);
+                FacturaLocal.MiEmpresa.IDEmpresa = Convert.ToInt32(CboxEmpresa.SelectedValue);
+                FacturaLocal.Fecha = DtpFechaFactura.Value.Date;
+                FacturaLocal.Anotaciones = TxtNotas.Text.Trim();
+
+                //datos del detalle
+                CargarDetalleDeFactura();
+
+                if (FacturaLocal.Agregar())
+                {
+                    MessageBox.Show("Factura guardad correctamente", ":)", MessageBoxButtons.OK);
+
+                    //TO DO: llamado a reporte
+
+                    Limpiar();
+                }
             }
         }
     }   
