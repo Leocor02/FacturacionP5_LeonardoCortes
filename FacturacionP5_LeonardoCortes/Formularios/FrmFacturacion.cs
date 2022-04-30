@@ -48,7 +48,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                     //se acumulan los datos en las variables de totalización
                     Subt += Convert.ToDecimal(item["CantidadFacturada"]) * Convert.ToDecimal(item["PrecioUnitario"]);
 
-                    Descuentos += Subt * Convert.ToDecimal(item["PoecentajeDescuento"]) / 100;
+                    Descuentos += Subt * Convert.ToDecimal(item["PorcentajeDescuento"]) / 100;
 
                     Impuestos += Convert.ToDecimal(item["ImpuestosLinea"]);
 
@@ -57,10 +57,10 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
                 //una vez tenemos las sumas se presentan en los txt correspondientes usando un formato fácil de leer para el usuario 
 
-                LblSubTotal.Text = string.Format("{0:N2}", Subt);
-                LblDescuentos.Text = string.Format("{0:N2}", Descuentos);
-                LblImpuestos.Text = string.Format("{0:N2}", Impuestos);
-                LblTotal.Text = string.Format("{0:N2}", Total);
+                LblSubTotal.Text = string.Format("{0:C2}", Subt);
+                LblDescuentos.Text = string.Format("{0:C2}", Descuentos);
+                LblImpuestos.Text = string.Format("{0:C2}", Impuestos);
+                LblTotal.Text = string.Format("{0:C2}", Total);
 
             }
         }

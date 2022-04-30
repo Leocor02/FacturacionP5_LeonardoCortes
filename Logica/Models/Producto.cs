@@ -79,9 +79,9 @@ namespace Logica.Models
                 R.MiCategoria.IDProductoCategoria = Convert.ToInt32(MisDatos["IDProductoCategoria"]);
                 R.MiunidadMedida.IDUnidad = Convert.ToInt32(MisDatos["IDUnidad"]);
 
-                R.CodigoBarras = Convert.ToString(MisDatos["CodigoBarras"]);
+                R.CodigoBarras = Convert.ToString(MisDatos["CodigoDeBarras"]);
 
-                R.MiunidadMedida.Unidad = Convert.ToString(MisDatos["MiunidadMedida"]);
+                R.MiunidadMedida.Unidad = Convert.ToString(MisDatos["UnidadMedida"]);
                 R.MiCategoria.Categoria = Convert.ToString(MisDatos["Categoria"]);
                 
                 R.MiImpuesto.CodigoImpuesto = Convert.ToString(MisDatos["CodigoImpuesto"]);

@@ -57,7 +57,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
             //primero se valida que no pase el item en cero
-        if (ValidarItem())
+            if (ValidarItem())
             {
                 //procedemos con la carga del item en el detalle del formulario de facturación
 
@@ -69,7 +69,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
                 NuevaLineaDetalleEnFacturacion["IDProducto"] = MiProducto.IDProducto;
 
-                NuevaLineaDetalleEnFacturacion["DescripcionProducto"] = MiProducto.DescripcionProducto;
+                NuevaLineaDetalleEnFacturacion["DescripcionItem"] = MiProducto.DescripcionProducto;
 
                 NuevaLineaDetalleEnFacturacion["CantidadFacturada"] = TxtCantidad.Value;
 
@@ -82,7 +82,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
                 decimal PrecioMenosDescuento = MiProducto.PrecioUnitario - ((MiProducto.PrecioUnitario * PorcentajeDescuento) / 100);
                 decimal Impuestos = ((PrecioMenosDescuento * MiProducto.MiImpuesto.MontoImpuesto) / 100) * TxtCantidad.Value;
-                NuevaLineaDetalleEnFacturacion["ImpuestoLinea"] = Impuestos;
+                NuevaLineaDetalleEnFacturacion["ImpuestosLinea"] = Impuestos;
 
                 decimal TotalLinea = PrecioMenosDescuento * TxtCantidad.Value + Impuestos;
                 NuevaLineaDetalleEnFacturacion["TotalLinea"] = TotalLinea;
@@ -149,7 +149,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
             {
                 DataGridViewRow FilaSelecciona = DgvListaItems.SelectedRows[0];
 
-                int IdProductoSeleccionado = Convert.ToInt32(FilaSelecciona.Cells["CISProducto"].Value);
+                int IdProductoSeleccionado = Convert.ToInt32(FilaSelecciona.Cells["CIDProducto"].Value);
 
                 MiProducto = MiProducto.ConsultarPorID(IdProductoSeleccionado);
 

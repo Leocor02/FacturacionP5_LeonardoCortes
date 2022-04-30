@@ -32,23 +32,23 @@
             this.BtnAceptar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.DgvListaItems = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CboSumarCantidades = new System.Windows.Forms.CheckBox();
-            this.TxtDescuento = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtCantidad = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TxtPrecioUnitario = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TxtIVA = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.CIDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDescripcionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCantidadEnStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCodigoDeBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TxtPrecioFinal = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtPrecioFinal = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtIVA = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxtPrecioUnitario = new System.Windows.Forms.TextBox();
+            this.CboSumarCantidades = new System.Windows.Forms.CheckBox();
+            this.TxtDescuento = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtCantidad = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaItems)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtCantidad)).BeginInit();
@@ -112,10 +112,46 @@
             this.DgvListaItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaItems_CellClick);
             this.DgvListaItems.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaItems_DataBindingComplete);
             // 
+            // CIDProducto
+            // 
+            this.CIDProducto.DataPropertyName = "IDProducto";
+            this.CIDProducto.HeaderText = "Código";
+            this.CIDProducto.Name = "CIDProducto";
+            this.CIDProducto.ReadOnly = true;
+            // 
+            // CDescripcionProducto
+            // 
+            this.CDescripcionProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CDescripcionProducto.DataPropertyName = "DescripcionProducto";
+            this.CDescripcionProducto.HeaderText = "Descripción";
+            this.CDescripcionProducto.Name = "CDescripcionProducto";
+            this.CDescripcionProducto.ReadOnly = true;
+            // 
+            // CCantidadEnStock
+            // 
+            this.CCantidadEnStock.DataPropertyName = "CantidadEnStock";
+            this.CCantidadEnStock.HeaderText = "Stock";
+            this.CCantidadEnStock.Name = "CCantidadEnStock";
+            this.CCantidadEnStock.ReadOnly = true;
+            // 
+            // CPrecioUnitario
+            // 
+            this.CPrecioUnitario.DataPropertyName = "PrecioUnitario";
+            this.CPrecioUnitario.HeaderText = "Precio Unitario";
+            this.CPrecioUnitario.Name = "CPrecioUnitario";
+            this.CPrecioUnitario.ReadOnly = true;
+            // 
+            // CCodigoDeBarras
+            // 
+            this.CCodigoDeBarras.DataPropertyName = "CodigoDeBarras";
+            this.CCodigoDeBarras.HeaderText = "Código de barras";
+            this.CCodigoDeBarras.Name = "CCodigoDeBarras";
+            this.CCodigoDeBarras.ReadOnly = true;
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.TxtPrecioFinal);
-            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.TxtIVA);
             this.groupBox1.Controls.Add(this.label3);
@@ -131,6 +167,57 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
+            // 
+            // TxtPrecioFinal
+            // 
+            this.TxtPrecioFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPrecioFinal.Location = new System.Drawing.Point(422, 36);
+            this.TxtPrecioFinal.Name = "TxtPrecioFinal";
+            this.TxtPrecioFinal.ReadOnly = true;
+            this.TxtPrecioFinal.Size = new System.Drawing.Size(95, 26);
+            this.TxtPrecioFinal.TabIndex = 9;
+            this.TxtPrecioFinal.Text = "0";
+            this.TxtPrecioFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(337, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "% IVA";
+            // 
+            // TxtIVA
+            // 
+            this.TxtIVA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtIVA.Location = new System.Drawing.Point(316, 37);
+            this.TxtIVA.Name = "TxtIVA";
+            this.TxtIVA.ReadOnly = true;
+            this.TxtIVA.Size = new System.Drawing.Size(80, 26);
+            this.TxtIVA.TabIndex = 7;
+            this.TxtIVA.Text = "0";
+            this.TxtIVA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(206, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Precio Unitario";
+            // 
+            // TxtPrecioUnitario
+            // 
+            this.TxtPrecioUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPrecioUnitario.Location = new System.Drawing.Point(202, 37);
+            this.TxtPrecioUnitario.Name = "TxtPrecioUnitario";
+            this.TxtPrecioUnitario.ReadOnly = true;
+            this.TxtPrecioUnitario.Size = new System.Drawing.Size(95, 26);
+            this.TxtPrecioUnitario.TabIndex = 5;
+            this.TxtPrecioUnitario.Text = "0";
+            this.TxtPrecioUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CboSumarCantidades
             // 
@@ -179,101 +266,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cantidad";
             // 
-            // TxtPrecioUnitario
+            // label5
             // 
-            this.TxtPrecioUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPrecioUnitario.Location = new System.Drawing.Point(202, 37);
-            this.TxtPrecioUnitario.Name = "TxtPrecioUnitario";
-            this.TxtPrecioUnitario.ReadOnly = true;
-            this.TxtPrecioUnitario.Size = new System.Drawing.Size(95, 26);
-            this.TxtPrecioUnitario.TabIndex = 5;
-            this.TxtPrecioUnitario.Text = "0";
-            this.TxtPrecioUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(206, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Precio Unitario";
-            // 
-            // TxtIVA
-            // 
-            this.TxtIVA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtIVA.Location = new System.Drawing.Point(316, 37);
-            this.TxtIVA.Name = "TxtIVA";
-            this.TxtIVA.ReadOnly = true;
-            this.TxtIVA.Size = new System.Drawing.Size(80, 26);
-            this.TxtIVA.TabIndex = 7;
-            this.TxtIVA.Text = "0";
-            this.TxtIVA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(337, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "% IVA";
-            // 
-            // CIDProducto
-            // 
-            this.CIDProducto.DataPropertyName = "IDProducto";
-            this.CIDProducto.HeaderText = "Código";
-            this.CIDProducto.Name = "CIDProducto";
-            this.CIDProducto.ReadOnly = true;
-            // 
-            // CDescripcionProducto
-            // 
-            this.CDescripcionProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CDescripcionProducto.DataPropertyName = "DescripcionProducto";
-            this.CDescripcionProducto.HeaderText = "Descripción";
-            this.CDescripcionProducto.Name = "CDescripcionProducto";
-            this.CDescripcionProducto.ReadOnly = true;
-            // 
-            // CCantidadEnStock
-            // 
-            this.CCantidadEnStock.DataPropertyName = "CantidadEnStock";
-            this.CCantidadEnStock.HeaderText = "Stock";
-            this.CCantidadEnStock.Name = "CCantidadEnStock";
-            this.CCantidadEnStock.ReadOnly = true;
-            // 
-            // CPrecioUnitario
-            // 
-            this.CPrecioUnitario.DataPropertyName = "PrecioUnitario";
-            this.CPrecioUnitario.HeaderText = "Precio Unitario";
-            this.CPrecioUnitario.Name = "CPrecioUnitario";
-            this.CPrecioUnitario.ReadOnly = true;
-            // 
-            // CCodigoDeBarras
-            // 
-            this.CCodigoDeBarras.DataPropertyName = "CodigoDeBarras";
-            this.CCodigoDeBarras.HeaderText = "Código de barras";
-            this.CCodigoDeBarras.Name = "CCodigoDeBarras";
-            this.CCodigoDeBarras.ReadOnly = true;
-            // 
-            // TxtPrecioFinal
-            // 
-            this.TxtPrecioFinal.AutoSize = true;
-            this.TxtPrecioFinal.Location = new System.Drawing.Point(426, 20);
-            this.TxtPrecioFinal.Name = "TxtPrecioFinal";
-            this.TxtPrecioFinal.Size = new System.Drawing.Size(62, 13);
-            this.TxtPrecioFinal.TabIndex = 10;
-            this.TxtPrecioFinal.Text = "Precio Final";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(422, 36);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(95, 26);
-            this.textBox3.TabIndex = 9;
-            this.textBox3.Text = "0";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(438, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Precio Final";
             // 
             // FrmFacturacionItemGestion
             // 
@@ -321,7 +321,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CCantidadEnStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCodigoDeBarras;
-        private System.Windows.Forms.Label TxtPrecioFinal;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtPrecioFinal;
+        private System.Windows.Forms.Label label5;
     }
 }
