@@ -51,7 +51,7 @@ namespace Logica.Models
             Totalizar();
 
             MyCnnEncabezado.ListaParametros.Add(new SqlParameter("@numero", this.Numero));
-            MyCnnEncabezado.ListaParametros.Add(new SqlParameter("@feha", this.Fecha));
+            MyCnnEncabezado.ListaParametros.Add(new SqlParameter("@fecha", this.Fecha));
             MyCnnEncabezado.ListaParametros.Add(new SqlParameter("@subtotal", this.SubTotal));
             MyCnnEncabezado.ListaParametros.Add(new SqlParameter("@descuentos", this.Descuentos));
             MyCnnEncabezado.ListaParametros.Add(new SqlParameter("@subtotal2", this.SubTotal2));

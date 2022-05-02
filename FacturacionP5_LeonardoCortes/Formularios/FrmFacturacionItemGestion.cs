@@ -39,9 +39,6 @@ namespace FacturacionP5_LeonardoCortes.Formularios
             DgvListaItems.DataSource = ListaItems;
 
             DgvListaItems.ClearSelection();
-
-
-
         }
 
         private void DgvListaItems_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -94,14 +91,11 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                 ObjetosGlobales.MiFormFacturador.ListaDetallesLocal.Rows.Add(NuevaLineaDetalleEnFacturacion);
 
                 //Retornamos ok como respuesta al form de facturación
-                DialogResult = DialogResult.OK;
-
-
-
-
+                DialogResult = DialogResult.OK;   
             }
 
-
+            
+            
         }
 
         private bool ValidarItem()
@@ -125,7 +119,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                 {
                     MessageBox.Show("La cantidad no puede ser cero", "Error de validación", MessageBoxButtons.OK);
                     return false;
-                }
+                } 
             }
             return R;
 
@@ -177,6 +171,11 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                 CalcularPrecioFinal(MiProducto, Convert.ToDecimal(TxtDescuento.Text.Trim()));
             }
             
+        }
+
+        private void TxtCantidad_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

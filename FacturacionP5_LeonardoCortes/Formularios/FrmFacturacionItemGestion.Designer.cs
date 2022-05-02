@@ -38,6 +38,7 @@
             this.CPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCodigoDeBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.TxtPrecioFinal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtIVA = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtCantidad = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaItems)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtCantidad)).BeginInit();
@@ -168,6 +168,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(438, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Precio Final";
+            // 
             // TxtPrecioFinal
             // 
             this.TxtPrecioFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -256,6 +265,7 @@
             this.TxtCantidad.Name = "TxtCantidad";
             this.TxtCantidad.Size = new System.Drawing.Size(66, 26);
             this.TxtCantidad.TabIndex = 1;
+            this.TxtCantidad.ValueChanged += new System.EventHandler(this.TxtCantidad_ValueChanged);
             // 
             // label1
             // 
@@ -265,15 +275,6 @@
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cantidad";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(438, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Precio Final";
             // 
             // FrmFacturacionItemGestion
             // 

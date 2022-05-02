@@ -21,7 +21,10 @@ namespace FacturacionP5_LeonardoCortes.Formularios
         //de detalles pasará al obj compuesto para agregar esos detalles
         //en la tabla de muchos a muchos
 
-        public  DataTable ListaDetallesLocal { get; set; }
+        public DataTable ListaDetallesLocal { get; set; }
+
+        //Estoy aquí
+        public DataTable ListaProductos { get; set; } 
 
         public FrmFacturacion()
         {
@@ -29,7 +32,10 @@ namespace FacturacionP5_LeonardoCortes.Formularios
 
             FacturaLocal = new Logica.Models.Factura(); 
             
-            ListaDetallesLocal = new DataTable();   
+            ListaDetallesLocal = new DataTable();
+
+            //Estoy aquí
+            ListaProductos = new DataTable();
         }
 
         private void Totalizar()
@@ -186,6 +192,7 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                 detalle.DescripcionItem = Convert.ToString(item["DescripcionItem"]);
                 detalle.ImpuestoLinea = Convert.ToDecimal(item["ImpuestosLinea"]);
                 detalle.Miproducto.IDProducto = Convert.ToInt32(item["ImpuestosLinea"]);
+                detalle.PorcentajeDescuento = Convert.ToDecimal(item["PorcentajeDescuento"]);
                 detalle.PrecioUnitario = Convert.ToDecimal(item["PrecioUnitario"]);
                 detalle.SubTotalLinea = Convert.ToDecimal(item["SubTotalLinea"]);
                 detalle.TotalLinea = Convert.ToDecimal(item["TotalLinea"]);
@@ -193,6 +200,24 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                 FacturaLocal.DetalleItems.Add(detalle);
             }
         }
+
+        //Estoy aquí
+        private void ProductoRepetido()
+        {
+            foreach (DataRow item in ListaProductos.Rows)
+            {
+
+                Logica.Models.FacturaDetalle producto = new Logica.Models.FacturaDetalle();
+
+                producto.Miproducto.IDProducto = Convert.ToInt32(item["IDProducto"]);
+
+                int IdRecolectado = Convert.ToInt32(item["IDProducto"]);
+
+                FacturaLocal.DetalleItems.Add(producto);
+
+            }
+        }
+        
 
         private void BtnFacturar_Click(object sender, EventArgs e)
         {
@@ -221,5 +246,13 @@ namespace FacturacionP5_LeonardoCortes.Formularios
                 }
             }
         }
+
+        
+        private void BtnItemModificar_Click(object sender, EventArgs e)
+        {
+            Form FormCambioCantidad = new FrmCambioCantidad();  
+            FormCambioCantidad.Show();
+        }
+        
     }   
 }
